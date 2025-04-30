@@ -18,6 +18,6 @@ public class Vegetable {
     private String name;
     @Column(name = "price")
     private Double price;
-    @Column(name = "is_grow_on_tree")
-    private Boolean isGrowOnTree;
+    @Column(name = "is_grown_on_tree")
+    private boolean isGrownOnTree;
 }
