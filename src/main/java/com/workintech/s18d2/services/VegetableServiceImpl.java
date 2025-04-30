@@ -1,6 +1,6 @@
 package com.workintech.s18d2.services;
 
-import com.workintech.s18d2.dao.VegetableRepository;
+import com.workintech.s18d2.repository.VegetableRepository;
 import com.workintech.s18d2.entity.Vegetable;
 import org.springframework.beans.factory.annotation.Autowired;
 

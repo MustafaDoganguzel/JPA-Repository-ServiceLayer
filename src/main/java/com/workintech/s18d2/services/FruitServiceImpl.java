@@ -1,8 +1,10 @@
 package com.workintech.s18d2.services;
 
-import com.workintech.s18d2.dao.FruitRepository;
+import com.workintech.s18d2.exceptions.PlantException;
+import com.workintech.s18d2.repository.FruitRepository;
 import com.workintech.s18d2.entity.Fruit;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 
 import java.util.List;
 import java.util.Optional;
@@ -35,17 +37,18 @@ public class FruitServiceImpl implements FruitService{
     }
     @Override
     public Fruit delete(Long id){
-        Fruit found = fr.getById(id);
+        Fruit found = getById(id);
         fr.delete(found);
         return found;
     }
     @Override
     public Fruit getById(Long id){
+
         Optional<Fruit> fruitOptional = fr.findById(id);
         if (fruitOptional.isPresent()){
             return fruitOptional.get();
         }
-        throw new RuntimeException("ASDF"); // Degisecek!!!
+        throw new PlantException("Fruit couldnt be found" + id, HttpStatus.NOT_FOUND);
     }
 
 
