@@ -1,4 +1,4 @@
-package entity;
+package com.workintech.s18d2.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -19,7 +19,7 @@ public class Fruit {
     private String name;
     @Column(name = "price")
     private Double price;
-    @Column(name = "is_grow_on_tree")
-    private Boolean isGrowOnTree;
+    @Enumerated(value = EnumType.STRING)
+    private FruitType fruitType;
 
 }
